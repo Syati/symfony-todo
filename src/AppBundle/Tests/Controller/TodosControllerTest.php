@@ -12,7 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class TodosControllerTest extends WebTestCase
 {
     protected $client = null;
-    
+
     protected function setUp()
     {
         $this->client = static::createClient();
@@ -59,5 +59,5 @@ class TodosControllerTest extends WebTestCase
      */
     public function testDelete()
     {
-    }    
+    }
 }

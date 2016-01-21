@@ -28,9 +28,13 @@
         "symfony/phpunit-bridge": "~2.7",
         "phpdocumentor/phpdocumentor": "^2.8",
         "phpunit/phpunit": "^5.1",
-        "bruli/php-git-hooks": "^2.4"
+        "bruli/php-git-hooks": "^2.4",
+        "doctrine/doctrine-fixtures-bundle": "^2.3"
     },
   "scripts": {
+       "check": [
+            "php .git/hooks/pre-commit"
+       ],
         "test": [
             "bin/phpunit --bootstrap vendor/autoload.php -c ./"
         ],
