@@ -1,0 +1,23 @@
+# grunt task
+
+# Tasks(rsync, less, etc) are executed from top to bottom.
+
+# for https
+default:
+  - 'bower:development'
+  - 'rsync:development'
+  - 'less:staging'
+  - 'watch'
+
+staging:
+  - 'bower:production'
+  - 'rsync:production'
+  - 'less:production'
+  - 'uglify:production'
+
+deploy:
+  - 'bower:production'
+  - 'rsync:production'
+  - 'less:production'
+  - 'uglify:production'
+

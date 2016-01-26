@@ -1,4 +1,10 @@
 /docs/
+/web/static
+
+### bower
+
+.bower-cache
+.bower-registry
 
 ### https://raw.github.com/github/gitignore/0dbd791269e83d241dfd0a952f461d9a9302d518/Symfony.gitignore
 
@@ -135,3 +141,6 @@ vendor/
 # composer.lock
 
 
+## NODE
+
+node_modules

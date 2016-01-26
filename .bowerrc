@@ -1,0 +1,7 @@
+{
+  "directory": "web/assets/vendor",
+  "storage": {
+          "packages": ".bower-cache",
+          "registry": ".bower-registry"
+  }  
+}

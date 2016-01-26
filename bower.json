@@ -1,0 +1,27 @@
+{
+  "name": "symfony-todo",
+  "description": "symphony-todo",
+  "main": "index.js",
+  "authors": [
+    "mizuki-y <mizuki-y@syati.info>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Syati/symfony-todo",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.2.0"
+  },
+  "exportsOverride": {
+    "jquery": {
+      "js": "dist/*.js",
+      "map": "dist/*.map"
+    }
+  }
+}
