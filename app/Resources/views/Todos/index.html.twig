@@ -1,16 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div id="wrapper">
-        <div id="container">
-            <div id="welcome">
-                <h1>Todos</h1>
-            </div>
-
-            <div>
-            </div>
-        </div>
-    </div>
+<section>
+  <h2>todos</h2>
+  <ul class="m-todos">
+    {% for todo in todos %}
+    <li class="m-todos-item l-table">
+      <div class="m-todos-item__title l-table-cell">
+        {{ todo.title }}
+      </div>
+      <div class="m-todos-item__menu l-table-cell">
+        <a class="m-btn" href="#">Edit</a>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  <a href="#">Create Todo</a>
+</section>
 {% endblock %}
-
-

@@ -20,7 +20,7 @@ class TodosController extends Controller
      * Todos indexAction renders a index view
      *
      * @param Request $request A Request instance
-     * 
+     *
      * @return Response A Response instance
      *
      * @Route("/", name="todos_index")
@@ -28,15 +28,23 @@ class TodosController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('Todos/index.html.twig');
+        // test data
+        $todos = [
+            ["title" => "Learning Symfony"],
+            ["title" => "Learning Symfony2"],
+            ["title" => "Learning Symfony3"],
+        ];
+
+        return $this->render('Todos/index.html.twig', [
+            'todos' => $todos
+        ]);
     }
 
     /**
      * Todos createAction creates a new todo
      *
      * @param Request $request A Request instance
-     * 
+     *
      * @return Response A Response instance
      *
      * @Route("/", name="todos_create")
@@ -47,12 +55,12 @@ class TodosController extends Controller
         // replace this example code with whatever you need
         return $this->render('Todos/index.html.twig');
     }
-    
+
     /**
      * Todos showAction renders a todo of a id passed
      *
      * @param Request $request A Request instance
-     * 
+     *
      * @return Response A Response instance
      *
      * @Route("/{id}", name="todos_show")
@@ -68,7 +76,7 @@ class TodosController extends Controller
      * Todos updateAction update a todo of a id passed
      *
      * @param Request $request A Request instance
-     * 
+     *
      * @return Response A Response instance
      *
      * @Route("/{id}", name="todos_update")
@@ -84,7 +92,7 @@ class TodosController extends Controller
      * Todos deleteAction delete a todo of a id passed
      *
      * @param Request $request A Request instance
-     * 
+     *
      * @return Response A Response instance
      *
      * @Route("/{id}", name="todos_delete")
@@ -94,5 +102,5 @@ class TodosController extends Controller
     {
         // replace this example code with whatever you need
         return $this->render('Todos/index.html.twig');
-    }    
+    }
 }
