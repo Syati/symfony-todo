@@ -2,13 +2,24 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}Symfony Todo Sample{% endblock %}</title>
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('static/css/style.css') }}">
+        {% block stylesheets %}{% endblock %}
     </head>
     <body>
+      <header id="header" class="l-table">
+        <h1 class="l-table-cell m-header-title">
+          Symfony Todo
+          {% block header %}{% endblock %}
+        </h1>
+      </header>
+      <main id="main">
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+      </main>
+      <footer id="footer">
+        <p>Copyright © 2016 Syati.info</p>
+      </footer>
+      {% block javascripts %}{% endblock %}
     </body>
 </html>
