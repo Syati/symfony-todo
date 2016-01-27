@@ -1,0 +1,51 @@
+// theme
+
+@lightPrimaryColor  : #FFFFFF; /* white */
+@primaryColor       : #F5F5F5; /* darker white */
+@textPrimaryColor   : #094284; /* deep indigo */
+
+@primaryTextColor   : #212121; /* black */
+@secondaryTextColor : #727272; /* grey  */
+
+@accentColor        : #8BC34A; /* green */
+@dividerColor       : #E3E3E3; /* light grey */
+
+@sidebarColor1      : #4A90E2;
+@sidebarColor2      : #2E5D94;
+
+
+* {
+  font-family:'Lato', 'Lucida Grande','Hiragino Kaku Gothic ProN','Meiryo', 'sans-serif';
+  font-weight: 300;  
+}
+
+#header,
+#footer {
+  border-color: @dividerColor;
+  color: @textPrimaryColor;
+}
+
+#sidebar {
+  background: linear-gradient(@sidebarColor1, @sidebarColor2);
+}
+
+.m-input,
+.m-btn {
+  border-color: @dividerColor;
+  color: @primaryTextColor;
+  background: @lightPrimaryColor;
+}
+
+.m-header-open-icon {
+  background: @accentColor;
+  color: @lightPrimaryColor;
+}
+
+
+a {
+  text-decoration: none;
+  color: @secondaryTextColor;
+  &:hover {
+    color: darken(@secondaryTextColor, 10%);
+  }
+}

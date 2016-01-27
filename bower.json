@@ -16,12 +16,16 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~2.2.0"
+    "jquery": "~2.2.0",
+    "normalize-css": "~3.0.3"
   },
   "exportsOverride": {
     "jquery": {
       "js": "dist/*.js",
       "map": "dist/*.map"
+    },
+    "normalize-css": {
+      "css": "*.css"
     }
   }
 }
