@@ -14,7 +14,7 @@ module.exports = {
         options: {
             args      : ["--verbose", "--archive", "--checksum", "--delete"],
             exclude   : ["*.js",       // because of using uglify
-                         "*.less",     // less
+                         "/css/",      // less
                          "/vendor/",   // library
                          ".gitkeep"
                         ],

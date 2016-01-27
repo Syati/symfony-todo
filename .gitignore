@@ -1,8 +1,10 @@
 /docs/
 /web/static
+.tern-port
 
 ### bower
 
+bower_components
 .bower-cache
 .bower-registry
 

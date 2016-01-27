@@ -21,7 +21,7 @@ module.exports = function(grunt) {
                 // assets
                 getAssetsDir     : function(){ return path.join(this.projectRoot, 'web/assets'); },
                 getLessDir       : function(){ return path.join(this.getAssetsDir(), 'css'); },
-                getLessSrc       : function(){ return ['**/*.less']; },
+                getLessSrc       : function(){ return ['style.less']; },
                 getJsDir         : function(){ return path.join(this.getAssetsDir(),  'js'); },
                 getJsSrc         : function(){ return ['**/*.js']; },
                 getImgDir        : function(){ return path.join(this.getAssetsDir(), 'img'); },
@@ -32,8 +32,7 @@ module.exports = function(grunt) {
                 cssExt           : '.css',
                 getJsDestDir     : function(){ return path.join(this.getStaticDir(),  'js'); },
                 jsExt            : '.js',
-                getImgDestDir    : function(){ return path.join(this.getStaticDir(), 'img'); },
-                getVendorDestDir : function(){ return path.join(this.getStaticDir(), 'vendor'); }
+                getImgDestDir    : function(){ return path.join(this.getStaticDir(), 'img'); }
             }
         },
         loadGruntTasks: {

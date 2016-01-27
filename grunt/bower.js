@@ -1,7 +1,7 @@
 module.exports = {
     development: {
         options:{
-            targetDir: '<%= settings.getVendorDestDir() %>',
+            targetDir: '<%= settings.getVendorDir() %>',
             install: true,
             verbose: true,
             cleanTargetDir: true,
@@ -19,7 +19,7 @@ module.exports = {
     },
     production: {
         options:{
-            targetDir: '<%= settings.getVendorDestDir() %>',
+            targetDir: '<%= settings.getVendorDir() %>',
             install: true,
             verbose: true,
             cleanTargetDir: true,
