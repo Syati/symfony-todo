@@ -18,11 +18,12 @@ class LoadTodoDate implements FixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        $todo1 = new Todo();
-        $todo1->setName("Programming");
-        $todo1->setDescription("Understand Symfony framework");
-
-        $manager->persist($todo1);
-        $manager->flush();
+        for ($i = 0; $i <= 10; $i++) {
+            $todo = new Todo();
+            $todo->setName("Symfony ${i}");
+            $todo->setDescription("Understand Symfony framework ${i}");
+            $manager->persist($todo);
+            $manager->flush();
+        }
     }
 }
