@@ -30,9 +30,18 @@ class TodosController extends Controller
     {
         // test data
         $todos = [
-            ["title" => "Learning Symfony"],
-            ["title" => "Learning Symfony2"],
-            ["title" => "Learning Symfony3"],
+            [
+                "id" => 1,
+                "title" => "Learning Symfony"
+            ],
+            [
+                "id" => 2,
+                "title" => "Learning Symfony2"
+            ],
+            [
+                "id" => 3,
+                "title" => "Learning Symfony3"
+            ],
         ];
 
         return $this->render('Todos/index.html.twig', [
