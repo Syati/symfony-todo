@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div>
+  <li><a href="{{ path("todos_index") }}">Todos</a></li>
+  <li>{{ todo.id }} - {{ todo.name }}</li>
+</div>
+<section>
+  <h2>{{ todo.name }}</h2>
+  <p>
+    {{ todo.description }}
+  </p>
+</section>
+{% endblock %}
+

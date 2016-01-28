@@ -58,16 +58,24 @@ class TodosController extends Controller
      * Todos showAction renders a todo of a id passed
      *
      * @param Request $request A Request instance
+     * @param int     $id      A id of todo
      *
      * @return Response A Response instance
      *
      * @Route("/{id}", name="todos_show")
      * @Method("get")
      */
-    public function showAction(Request $request)
+    public function showAction(Request $request, $id)
     {
+        $em = $this->getDoctrine()->getManager();
+        $todosRepository = $em->getRepository('AppBundle:Todo');
+
+        $todo = $todosRepository->find($id);
+
         // replace this example code with whatever you need
-        return $this->render('Todos/index.html.twig');
+        return $this->render('Todos/show.html.twig', [
+            'todo' => $todo
+        ]);
     }
 
     /**

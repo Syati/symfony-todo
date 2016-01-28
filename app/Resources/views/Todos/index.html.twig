@@ -10,7 +10,7 @@
         {{ todo.name }}
       </div>
       <div class="m-todos-item__menu l-table-cell">
-        <a class="m-btn" href="#">Edit</a>
+        <a class="m-btn" href="{{ path("todos_show", {"id": todo.id}) }}">Edit</a>
       </div>
     </li>
     {% endfor %}
