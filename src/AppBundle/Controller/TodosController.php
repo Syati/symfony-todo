@@ -28,21 +28,10 @@ class TodosController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // test data
-        $todos = [
-            [
-                "id" => 1,
-                "title" => "Learning Symfony"
-            ],
-            [
-                "id" => 2,
-                "title" => "Learning Symfony2"
-            ],
-            [
-                "id" => 3,
-                "title" => "Learning Symfony3"
-            ],
-        ];
+        $em = $this->getDoctrine()->getManager();
+        $todosRepository = $em->getRepository('AppBundle:Todo');
+
+        $todos = $todosRepository->findBy([]);
 
         return $this->render('Todos/index.html.twig', [
             'todos' => $todos
