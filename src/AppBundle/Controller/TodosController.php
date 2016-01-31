@@ -6,6 +6,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use AppBundle\Form\Type\TodoType;
 
 /**
  * TodosController
@@ -71,10 +73,10 @@ class TodosController extends Controller
         $todosRepository = $em->getRepository('AppBundle:Todo');
 
         $todo = $todosRepository->find($id);
+        $form = $this->createForm(TodoType::class, $todo);
 
-        // replace this example code with whatever you need
         return $this->render('Todos/show.html.twig', [
-            'todo' => $todo
+            'form' => $form->createView(),
         ]);
     }
 
