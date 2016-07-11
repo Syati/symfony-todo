@@ -34,7 +34,12 @@ class Todo
      * @ORM\Column(name="description", type="text")
      */
     private $description;
-    
+
+    /**
+    * @ORM\ManyToOne(targetEntity="User", inversedBy="todos")
+    */
+    private $user;
+
     /**
      * Get id
      *
@@ -91,5 +96,29 @@ class Todo
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Todo
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
