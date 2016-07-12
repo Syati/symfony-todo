@@ -1,0 +1,5 @@
+AppBundle\Entity\Todo:
+    Todo_{1..10}:
+        name: <text(10)>
+        description: <text(30)>
+        user: <numberBetween(1, 10)>

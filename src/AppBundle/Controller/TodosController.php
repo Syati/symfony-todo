@@ -74,7 +74,9 @@ class TodosController extends Controller
 
         $todo = $todosRepository->find($id);
         $form = $this->createForm(TodoType::class, $todo);
-
+        //        $user = $todo->getUser();
+        //        dump($user->getUserName());
+        //        dump($form);
         return $this->render('Todos/show.html.twig', [
             'form' => $form->createView(),
         ]);
