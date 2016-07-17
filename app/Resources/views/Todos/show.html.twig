@@ -2,9 +2,14 @@
 
 {% block body %}
 <div>
-  <li><a href="{{ path("todos_index") }}">Todos</a></li>
+  <ul>
+    <li><a href="{{ path("todos_index") }}">TOP</a></li>
+  </ul>
 </div>
 <section>
+  <div>
+    担当者:{{ user.username() }}
+  </div>
   <div>
     {{ form(form) }}
   </div>
