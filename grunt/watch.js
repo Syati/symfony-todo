@@ -6,8 +6,8 @@ module.exports = {
     files: ['app/Resources/views/**/*.twig']
   },
   less: {
-    files: ['web/assets/css/**/*.less'],
-    tasks: ['newer:less:staging']
+    files: ['web/assets/css/*.less'],
+    tasks: ['less:staging']
   },
   rsync: {
     files: ['web/assets/img/**/*',
