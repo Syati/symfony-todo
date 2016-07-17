@@ -23,13 +23,15 @@ class TodoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text', array(
+            ->add('name', 'text', [
                 'label' => 'Subject',
-                'attr' => array(
+                'attr' => [
                     'class' => 'm-input'
-                )
-            ))
-            ->add('description');
+                ]])
+            ->add('description', 'text', [
+                'attr' => [
+                    'class' => 'm-input'
+                ]]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
