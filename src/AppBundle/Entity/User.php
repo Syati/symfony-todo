@@ -2,15 +2,16 @@
 
 namespace AppBundle\Entity;
 
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Todo
+ * User
  *
- * @ORM\Table(name="user")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\TodoRepository")
+ * @ORM\Entity
+ * @ORM\Table(name="fos_user")
  */
-class User
+class User extends BaseUser
 {
     /**
      * @var int
@@ -19,28 +20,7 @@ class User
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="user_name", type="string", length=255)
-     */
-    private $user_name;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="first_name", type="text")
-     */
-    private $first_name;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="last_name", type="text")
-     */
-    private $last_name;
+    protected $id;
 
     /**
     * @ORM\OneToMany(targetEntity="Todo", mappedBy="user")
@@ -58,81 +38,11 @@ class User
     }
 
     /**
-     * Set userName
-     *
-     * @param string $userName
-     *
-     * @return User
-     */
-    public function setUserName($userName)
-    {
-        $this->user_name = $userName;
-
-        return $this;
-    }
-
-    /**
-     * Get userName
-     *
-     * @return string
-     */
-    public function getUserName()
-    {
-        return $this->user_name;
-    }
-
-    /**
-     * Set firstName
-     *
-     * @param string $firstName
-     *
-     * @return User
-     */
-    public function setFirstName($firstName)
-    {
-        $this->first_name = $firstName;
-
-        return $this;
-    }
-
-    /**
-     * Get firstName
-     *
-     * @return string
-     */
-    public function getFirstName()
-    {
-        return $this->first_name;
-    }
-
-    /**
-     * Set lastName
-     *
-     * @param string $lastName
-     *
-     * @return User
-     */
-    public function setLastName($lastName)
-    {
-        $this->last_name = $lastName;
-
-        return $this;
-    }
-
-    /**
-     * Get lastName
-     *
-     * @return string
-     */
-    public function getLastName()
-    {
-        return $this->last_name;
-    }
-    /**
      * Constructor
      */
     public function __construct()
     {
+        parent::__construct();
         $this->todos = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
