@@ -2,9 +2,10 @@ module.exports = {
     development: {
         options:{
             targetDir: '<%= settings.getVendorDir() %>',
+            copy: true,
             install: true,
             verbose: true,
-            cleanTargetDir: true,
+            cleanTargetDir: false,
             cleanBowerDir: false,
             layout: function (type, component) {
                 if (type === 'css') {
@@ -20,6 +21,7 @@ module.exports = {
     production: {
         options:{
             targetDir: '<%= settings.getVendorDir() %>',
+            copy: true,
             install: true,
             verbose: true,
             cleanTargetDir: true,
