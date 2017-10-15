@@ -1,0 +1,75 @@
+# PHP CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-php/ for more details
+#
+version: 2
+jobs:
+  build:
+    parallelism: 2
+    working_directory: ~/symfony-todo
+    docker:
+      # specify the version you desire here
+      - image: circleci/php:5.6.31-fpm-node-browsers
+      - image: circleci/mysql:5.7.19
+        environment:
+          MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+          MYSQL_ROOT_HOST: '%'
+
+    steps:
+      - checkout
+      - run:
+          command: sudo apt-get install mysql-client
+      - run:
+          name: Install PHP extensions
+          command: sudo docker-php-ext-install pdo_mysql
+      - run:
+          name: xdebug for coverage
+          command: sudo docker-php-ext-enable xdebug
+
+      - run:
+          name: install dockerize
+          command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && tar -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          environment:
+            DOCKERIZE_VERSION: v0.5.0
+
+      - run:
+          name: Wait for db
+          command: ./dockerize -wait tcp://localhost:3306 -timeout 1m
+
+      - run:
+          name: Create DB for Test
+          command: mysql -u root  -h 127.0.0.1 -e "CREATE DATABASE symfony"
+
+      # restore cache
+      - restore_cache:
+          keys:
+          - composer-cache-{{ checksum "composer.json" }}
+          - node-cache-{{ checksum "package.json" }}
+
+      # composer and npm install
+      - run: composer install -n --prefer-dist
+      - run: npm install
+
+      # save cache
+      - save_cache:
+          key: composer-cache-{{ checksum "composer.json" }}
+          paths:
+            - ./vendor
+
+      - save_cache:
+          key: node-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+
+      # app setup
+      - run: ./node_modules/.bin/grunt deploy
+
+      - run: php ./app/console doctrine:migrations:migrate -n
+      # run tests!
+
+      - run: stty cols 80; ./bin/phpunit -v
+
+      - store_test_results:
+          path: ./docs/test/report
+      - store_artifacts:
+          path: ./docs/test/report
