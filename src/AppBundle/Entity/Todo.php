@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Todo
@@ -24,6 +25,7 @@ class Todo
     /**
      * @var string
      *
+     * @Assert\NotNull()
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
@@ -31,9 +33,10 @@ class Todo
     /**
      * @var string
      *
+     * @Assert\NotNull()
      * @ORM\Column(name="description", type="text")
      */
-    private $description;
+    private $description = '';
 
     /**
     * @ORM\ManyToOne(targetEntity="User", inversedBy="todos")
@@ -83,7 +86,7 @@ class Todo
      */
     public function setDescription($description)
     {
-        $this->description = $description;
+        $this->description = $description ?: '';
 
         return $this;
     }

@@ -53,10 +53,11 @@ class TodosController extends Controller
      */
     public function newAction(Request $request)
     {
-        $form = $this->createForm(TodoType::class, new Todo);
-
+        $form = $this->createForm(TodoType::class, new Todo, [
+            'action' => $this->generateUrl('todos_create'),
+        ]);
         return $this->render('Todos/new.html.twig', [
-            'form' => $form
+            'form' => $form->createView()
         ]);
     }
 
@@ -67,12 +68,27 @@ class TodosController extends Controller
      *
      * @return Response A Response instance
      *
-     * @Route("/", name="todos_create")
+     * @Route("/create", name="todos_create")
      * @Method("post")
      */
     public function createAction(Request $request)
     {
-        return $this->render('Todos/index.html.twig');
+        $form = $this->createForm(TodoType::class);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($form->getData());
+            $em->flush();
+
+            return $this->redirect(
+                $this->generateUrl('todos_index')
+            );
+        }
+
+        return $this->render('Todos/new.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 
     /**

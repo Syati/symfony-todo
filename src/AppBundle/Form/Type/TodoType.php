@@ -31,7 +31,8 @@ class TodoType extends AbstractType
             ->add('description', 'text', [
                 'attr' => [
                     'class' => 'm-input'
-                ]]);
+                ]])
+            ->add('submit', 'submit');
     }
 
     public function configureOptions(OptionsResolver $resolver)

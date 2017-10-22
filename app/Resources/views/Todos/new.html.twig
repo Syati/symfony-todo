@@ -3,5 +3,6 @@
 {% block body %}
     <section>
         <h2>Create a todo</h2>
+        {{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}
     </section>
 {% endblock %}
