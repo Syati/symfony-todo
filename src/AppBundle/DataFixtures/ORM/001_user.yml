@@ -3,4 +3,4 @@ AppBundle\Entity\User:
         username: <userName()>
         email: <safeEmail()>
         password: <password()>
-
+        enabled: true
