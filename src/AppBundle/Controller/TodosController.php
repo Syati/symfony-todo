@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Todo;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -41,6 +42,25 @@ class TodosController extends Controller
     }
 
     /**
+     * Todos newAction renders a view for creating a todo
+     *
+     * @param Request $request A Request instance
+     *
+     * @return Response A Response instance
+     *
+     * @Route("/new", name="todos_new")
+     * @Method("get")
+     */
+    public function newAction(Request $request)
+    {
+        $form = $this->createForm(TodoType::class, new Todo);
+
+        return $this->render('Todos/new.html.twig', [
+            'form' => $form
+        ]);
+    }
+
+    /**
      * Todos createAction creates a new todo
      *
      * @param Request $request A Request instance
@@ -52,7 +72,6 @@ class TodosController extends Controller
      */
     public function createAction(Request $request)
     {
-        // replace this example code with whatever you need
         return $this->render('Todos/index.html.twig');
     }
 

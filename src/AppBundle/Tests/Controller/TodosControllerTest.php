@@ -28,6 +28,13 @@ class TodosControllerTest extends WebTestCase
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         //        $this->assertContains('Welcome to Symfony', $crawler->filter('#container h1')->text());
     }
+
+    public function testNew()
+    {
+        $crawler = $this->client->request('GET', '/todos/new');
+        $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
+    }
+
     /**
      * Test createAction
      *
