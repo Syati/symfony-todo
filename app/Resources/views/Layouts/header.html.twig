@@ -1,6 +1,14 @@
-<header id="header" class="l-table">
-    <h1 class="l-table-cell m-header-title">
+<header id="header">
+    <div class="m-header-title">
         <a href={{ path('root') }}>Symfony Todo</a>
         {% block header %}{% endblock %}
-    </h1>
+    </div>
+    <ul class="m-header-menu">
+        {% if app.user %}
+            <li><a href="{{ path('fos_user_security_logout') }}">Log out</a></li>
+        {% else %}
+            <li><a href="{{ path('fos_user_security_login') }}">Log in</a></li>
+            <li><a href="{{ path('fos_user_registration_register') }}">Sign up</a></li>
+        {% endif %}
+    </ul>
 </header>
