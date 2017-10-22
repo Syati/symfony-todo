@@ -8,18 +8,11 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-      <header id="header" class="l-table">
-        <h1 class="l-table-cell m-header-title">
-          <a href={{ path('root') }}>Symfony Todo</a>
-          {% block header %}{% endblock %}
-        </h1>
-      </header>
+      {{ include('Layouts/header.html.twig') }}
       <main id="main">
         {% block body %}{% endblock %}
       </main>
-      <footer id="footer">
-        <p>Copyright © 2016 Syati.info</p>
-      </footer>
+      {{ include('Layouts/footer.html.twig') }}
       {% block javascripts %}{% endblock %}
     </body>
 </html>
