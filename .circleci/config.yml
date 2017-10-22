@@ -66,7 +66,7 @@ jobs:
       - run: php ./app/console doctrine:migrations:migrate -n
       # run tests!
 
-      - run: stty cols 80; ./bin/phpunit -v
+      - run: ./bin/phpunit -v
 
       - store_test_results:
           path: ./docs/test/report

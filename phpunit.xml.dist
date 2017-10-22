@@ -39,6 +39,5 @@
     <logging>
       <log type="coverage-html" target="docs/test/report" lowUpperBound="35"
            highLowerBound="70"/>
-      <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
     </logging>
 </phpunit>
